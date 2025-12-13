@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pomona's | Food, Foliage & Slow Living</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Syne:wght@400;700;800&family=Work+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS with Config -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              pomona: {
+                forest: '#0F3D2E',
+                cream: '#FFF6C8',
+              },
+              leaf: {
+                mid: '#2E6A4F',
+              },
+              sage: {
+                soft: '#A9CBB7',
+              },
+              lime: {
+                zest: '#CDE678',
+              },
+              pomelo: {
+                orange: '#FF9F66',
+              },
+              neutral: {
+                charcoal: '#111111',
+                stone: '#F6F4EE',
+              }
+            },
+            fontFamily: {
+              syne: ['Syne', 'sans-serif'],
+              dm: ['"DM Serif Display"', 'serif'],
+              work: ['"Work Sans"', 'sans-serif'],
+            },
+            container: {
+              center: true,
+              padding: '1rem',
+              screens: {
+                xl: '1120px',
+              },
+            },
+          },
+        },
+      };
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.1/",
+    "react": "https://esm.sh/react@^19.2.1",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.1/",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.10.1",
+    "lucide-react": "https://esm.sh/lucide-react@^0.559.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
