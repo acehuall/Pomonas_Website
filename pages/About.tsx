@@ -9,7 +9,7 @@ const About: React.FC = () => {
         <div className="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
           <div>
             <h1 className="font-syne font-extrabold text-6xl md:text-8xl text-pomona-cream lowercase mb-8 leading-[0.8]">
-              about<br/>pomona's
+              about<br/>pomona
             </h1>
           </div>
           <div className="flex justify-center md:justify-end">
