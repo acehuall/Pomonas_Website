@@ -30,10 +30,10 @@ const About: React.FC = () => {
           </h2>
           <div className="font-work text-neutral-charcoal/80 text-lg leading-relaxed space-y-6">
             <p>
-              Pomona's is named after the Roman goddess of fruit and orchards. We started as a tiny kitchen project – developing recipes for friends and local cafés – and grew into a food-lifestyle studio that blends seasonal cooking, styling and plant-filled spaces.
+              Pomona's is named after the Roman goddess of fruit and orchards. We started as a tiny kitchen project – developing recipes for friends and local cafés – and grew into a food studio that blends seasonal cooking, styling and plant-filled spaces.
             </p>
             <p>
-              Our work is grounded in simple, joyful food, honest ingredients and considered objects that you’ll actually use. We believe in the beauty of the imperfect and the slow rhythm of nature.
+              Our work is grounded in simple, joyful food, honest ingredients you'll reach for again and again. We believe in the beauty of the imperfect and the slow rhythm of nature.
             </p>
           </div>
         </div>
@@ -48,7 +48,7 @@ const About: React.FC = () => {
           />
           <ValueColumn 
             title="Calm & considered"
-            text="We design spaces, recipes and objects that feel unhurried and generous, creating sanctuaries in busy lives."
+            text="We design dishes, recipes and spaces that feel unhurried and generous, creating sanctuaries in busy lives."
           />
           <ValueColumn 
             title="Kind to people & planet"
