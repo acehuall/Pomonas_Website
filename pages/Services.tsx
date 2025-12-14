@@ -1,7 +1,7 @@
 import React from 'react';
 import Section from '../components/Section';
 import Button from '../components/Button';
-import { ChefHat, Camera, HeartHandshake, Users } from 'lucide-react';
+import { ChefHat, HandPlatter, HeartHandshake, Users } from 'lucide-react';
 import { useNavigate, Link } from 'react-router-dom';
 
 const Services: React.FC = () => {
@@ -26,9 +26,9 @@ const Services: React.FC = () => {
             items={["Editorial features", "Brand collaborations", "Café menu consulting"]}
           />
           <ServiceBlock 
-            icon={<Camera size={32} />}
-            title="Food & Lifestyle Content"
-            items={["Photography direction", "Styling & Prop sourcing", "Social content strategy"]}
+            icon={<HandPlatter size={32} />}
+            title="Bespoke Catering"
+            items={["Private Dinners", "Weddinngs & Celebrations", "Corporate Events"]}
           />
           <ServiceBlock 
             icon={<HeartHandshake size={32} />}
