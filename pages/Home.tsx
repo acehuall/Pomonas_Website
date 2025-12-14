@@ -74,8 +74,8 @@ const Home: React.FC = () => {
           />
           <ServiceCard 
             icon={<Camera className="w-8 h-8 text-leaf-mid" />}
-            title="Content & Styling"
-            description="Styled shoots, social content and lush flat-lays for food brands."
+            title="Bespoke Catering"
+            description="Tailored culinary experiences for your special occasions."
           />
           <ServiceCard 
             icon={<Calendar className="w-8 h-8 text-leaf-mid" />}
