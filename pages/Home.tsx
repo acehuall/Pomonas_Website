@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Utensils, Camera, Calendar } from 'lucide-react';
+import { ArrowRight, Utensils, HandPlatter, Calendar } from 'lucide-react';
 import Section from '../components/Section';
 import Button from '../components/Button';
 import { NavLink, useNavigate } from 'react-router-dom';
@@ -73,7 +73,7 @@ const Home: React.FC = () => {
             description="Plant-forward recipes for brands, cafés and home cooks seeking nourishment."
           />
           <ServiceCard 
-            icon={<Camera className="w-8 h-8 text-leaf-mid" />}
+            icon={<HandPlatter className="w-8 h-8 text-leaf-mid" />}
             title="Bespoke Catering"
             description="Tailored culinary experiences for your special occasions."
           />
