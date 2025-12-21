@@ -92,10 +92,10 @@ const Home: React.FC = () => {
            <NavLink to="/merchandise" className="text-lime-zest font-work uppercase text-sm tracking-wide">View Shop</NavLink>
         </div>
         <div className="flex space-x-6 overflow-x-auto pb-8 scrollbar-hide">
-          <ProductCardMini name="Pomona's Tote" price="$25" img="https://picsum.photos/seed/tote/300/300" />
-          <ProductCardMini name="Citrus Tea Towel" price="$18" img="https://picsum.photos/seed/towel/300/300" />
-          <ProductCardMini name="Monstera Print" price="$35" img="https://picsum.photos/seed/print/300/300" />
-          <ProductCardMini name="Ceramic Bowl" price="$42" img="https://picsum.photos/seed/bowl/300/300" />
+          <ProductCardMini name="Pomona's Tote" price="£25" img="https://picsum.photos/seed/tote/300/300" />
+          <ProductCardMini name="Citrus Tea Towel" price="£18" img="https://picsum.photos/seed/towel/300/300" />
+          <ProductCardMini name="Monstera Print" price="£35" img="https://picsum.photos/seed/print/300/300" />
+          <ProductCardMini name="Ceramic Bowl" price="£42" img="https://picsum.photos/seed/bowl/300/300" />
         </div>
       </Section>
 
