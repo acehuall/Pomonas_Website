@@ -5,12 +5,12 @@ import { Product } from '../types';
 import { useNavigate } from 'react-router-dom';
 
 const products: Product[] = [
-  { id: '1', name: "Pomona's Canvas Tote", price: '$25.00', image: 'https://picsum.photos/seed/tote/600/600', description: 'Heavyweight organic cotton.' },
-  { id: '2', name: 'Citrus & Herb Towels', price: '$35.00', image: 'https://picsum.photos/seed/towel/600/600', description: 'Set of 2 linen blend towels.' },
-  { id: '3', name: 'Seasonal Zine Vol. 1', price: '$18.00', image: 'https://picsum.photos/seed/zine/600/600', description: '20 recipes for Autumn.' },
-  { id: '4', name: 'Monstera Art Print', price: '$45.00', image: 'https://picsum.photos/seed/print/600/600', description: 'A3 Giclée print.' },
-  { id: '5', name: 'Market Net Bag', price: '$15.00', image: 'https://picsum.photos/seed/netbag/600/600', description: 'Expandable cotton mesh.' },
-  { id: '6', name: 'Ceramic Pourer', price: '$55.00', image: 'https://picsum.photos/seed/pourer/600/600', description: 'Hand-thrown speckled clay.' },
+  { id: '1', name: "Pomona's Canvas Tote", price: '£25.00', image: 'https://picsum.photos/seed/tote/600/600', description: 'Heavyweight organic cotton.' },
+  { id: '2', name: 'Citrus & Herb Towels', price: '£35.00', image: 'https://picsum.photos/seed/towel/600/600', description: 'Set of 2 linen blend towels.' },
+  { id: '3', name: 'Seasonal Zine Vol. 1', price: '£18.00', image: 'https://picsum.photos/seed/zine/600/600', description: '20 recipes for Autumn.' },
+  { id: '4', name: 'Monstera Art Print', price: '£45.00', image: 'https://picsum.photos/seed/print/600/600', description: 'A3 Giclée print.' },
+  { id: '5', name: 'Market Net Bag', price: '£15.00', image: 'https://picsum.photos/seed/netbag/600/600', description: 'Expandable cotton mesh.' },
+  { id: '6', name: 'Ceramic Pourer', price: '£73.00', image: 'https://picsum.photos/seed/pourer/600/600', description: 'Hand-thrown speckled clay.' },
 ];
 
 const Merchandise: React.FC = () => {
