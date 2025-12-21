@@ -24,25 +24,25 @@ const Services: React.FC = () => {
             icon={<ChefHat size={32} />}
             title="Recipe Development"
             items={["Editorial features", "Brand collaborations", "Café menu consulting"]}
-            price="From £450"
+            price="From £200"
           />
           <ServiceBlock 
             icon={<HandPlatter size={32} />}
             title="Bespoke Catering"
             items={["Private Dinners", "Weddings & Celebrations", "Corporate Events"]}
-            price="From £650"
+            price="From £45 pp"
           />
           <ServiceBlock 
             icon={<HeartHandshake size={32} />}
             title="Brand Collaborations"
             items={["Co-branded products", "Seasonal campaigns", "Influencer partnerships"]}
-            price="From £1200"
+            price="Project based"
           />
           <ServiceBlock 
             icon={<Users size={32} />}
             title="Workshops & Events"
             items={["In-person cooking classes", "Styling workshops", "Virtual hosting sessions"]}
-            price="From £95 pp"
+            price="From £65 pp"
           />
         </div>
       </Section>
