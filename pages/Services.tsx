@@ -24,21 +24,25 @@ const Services: React.FC = () => {
             icon={<ChefHat size={32} />}
             title="Recipe Development"
             items={["Editorial features", "Brand collaborations", "Café menu consulting"]}
+            price="From £450"
           />
           <ServiceBlock 
             icon={<HandPlatter size={32} />}
             title="Bespoke Catering"
-            items={["Private Dinners", "Weddinngs & Celebrations", "Corporate Events"]}
+            items={["Private Dinners", "Weddings & Celebrations", "Corporate Events"]}
+            price="From £650"
           />
           <ServiceBlock 
             icon={<HeartHandshake size={32} />}
             title="Brand Collaborations"
             items={["Co-branded products", "Seasonal campaigns", "Influencer partnerships"]}
+            price="From £1200"
           />
           <ServiceBlock 
             icon={<Users size={32} />}
             title="Workshops & Events"
             items={["In-person cooking classes", "Styling workshops", "Virtual hosting sessions"]}
+            price="From £95 pp"
           />
         </div>
       </Section>
@@ -59,11 +63,11 @@ const Services: React.FC = () => {
   );
 };
 
-const ServiceBlock: React.FC<{icon: React.ReactNode, title: string, items: string[]}> = ({ icon, title, items }) => (
-  <div className="bg-pomona-forest/5 p-8 md:p-12 rounded-xl border border-pomona-forest/10 hover:bg-white/30 transition-colors">
+const ServiceBlock: React.FC<{icon: React.ReactNode, title: string, items: string[], price: string}> = ({ icon, title, items, price }) => (
+  <div className="bg-pomona-forest/5 p-8 md:p-12 rounded-xl border border-pomona-forest/10 hover:bg-white/30 transition-colors flex flex-col h-full">
     <div className="text-pomona-forest mb-6">{icon}</div>
     <h3 className="font-dm text-2xl md:text-3xl text-pomona-forest mb-6">{title}</h3>
-    <ul className="space-y-3 mb-8">
+    <ul className="space-y-3 mb-8 flex-grow">
       {items.map((item, idx) => (
         <li key={idx} className="flex items-center font-work text-neutral-charcoal/80">
           <span className="w-1.5 h-1.5 bg-leaf-mid rounded-full mr-3"></span>
@@ -71,9 +75,14 @@ const ServiceBlock: React.FC<{icon: React.ReactNode, title: string, items: strin
         </li>
       ))}
     </ul>
-    <Link to="/contact" className="text-pomona-forest font-bold uppercase text-sm border-b border-pomona-forest hover:text-leaf-mid hover:border-leaf-mid transition-colors pb-0.5">
-      Let's talk
-    </Link>
+    <div className="flex items-center justify-between mt-auto">
+      <Link to="/contact" className="text-pomona-forest font-bold uppercase text-sm border-b border-pomona-forest hover:text-leaf-mid hover:border-leaf-mid transition-colors pb-0.5">
+        Let's talk
+      </Link>
+      <span className="bg-pomona-forest text-pomona-cream px-4 py-1.5 rounded-full font-work text-xs font-medium tracking-wide">
+        {price}
+      </span>
+    </div>
   </div>
 );
 
