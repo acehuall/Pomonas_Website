@@ -93,7 +93,7 @@ const Home: React.FC = () => {
         </div>
         <div className="flex space-x-6 overflow-x-auto pb-8 scrollbar-hide">
           <ProductCardMini name="Pomona's Tote" price="£25" img="https://picsum.photos/seed/tote/300/300" />
-          <ProductCardMini name="Citrus Tea Towel" price="£18" img="https://picsum.photos/seed/towel/300/300" />
+          <ProductCardMini name="Citrus Tea Towel" price="£18" img="https://raw.github.com/acehuall/Pomonas_Website/main/Photos/Tea%20Towel%20Image%20(600x600).png" />
           <ProductCardMini name="Monstera Print" price="£35" img="https://picsum.photos/seed/print/300/300" />
           <ProductCardMini name="Ceramic Bowl" price="£42" img="https://picsum.photos/seed/bowl/300/300" />
         </div>
