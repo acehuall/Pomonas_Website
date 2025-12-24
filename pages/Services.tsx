@@ -13,7 +13,7 @@ const Services: React.FC = () => {
       <div className="bg-pomona-forest pt-32 pb-20">
         <div className="container mx-auto px-6 text-center md:text-left">
           <h1 className="font-syne font-extrabold text-5xl md:text-7xl text-pomona-cream mb-4">Services</h1>
-          <p className="font-work text-xl text-sage-soft">From recipes to full visual stories.</p>
+          <p className="font-work text-xl text-sage-soft">From recipes to full Sensory experiences.</p>
         </div>
       </div>
 
