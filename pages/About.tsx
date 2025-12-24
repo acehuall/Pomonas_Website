@@ -14,7 +14,7 @@ const About: React.FC = () => {
           </div>
           <div className="flex justify-center md:justify-end">
              <img 
-              src="https://images.unsplash.com/photo-1566125882500-87e10f726cdc?q=80&w=800&auto=format&fit=crop" 
+              src="https://raw.github.com/acehuall/Pomonas_Website/main/Photos/Mexigo%20Photo.jpg" 
               alt="Classical Statue" 
               className="w-full max-w-sm h-[400px] md:h-[550px] object-cover rounded-t-full rounded-b-2xl shadow-xl bg-neutral-800"
             />
