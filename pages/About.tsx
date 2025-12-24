@@ -24,10 +24,19 @@ const About: React.FC = () => {
 
       {/* Story */}
       <Section bgClass="bg-neutral-stone text-pomona-forest">
-        <div className="grid md:grid-cols-2 gap-12 md:gap-24">
-          <h2 className="font-dm text-4xl md:text-5xl leading-tight">
-            A small studio with a big appetite.
-          </h2>
+        <div className="grid md:grid-cols-2 gap-12 md:gap-24 items-center">
+          <div>
+            <h2 className="font-dm text-4xl md:text-5xl leading-tight mb-8">
+              A small studio with a big appetite.
+            </h2>
+            <div className="hidden md:block">
+              <img
+                src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?q=80&w=800&auto=format&fit=crop"
+                alt="Green leaves in a circular window"
+                className="w-72 h-72 object-cover rounded-full shadow-xl border-4 border-pomona-cream"
+              />
+            </div>
+          </div>
           <div className="font-work text-neutral-charcoal/80 text-lg leading-relaxed space-y-6">
             <p>
               Pomona's is named after the Roman goddess of fruit and orchards. We started as a tiny kitchen project – developing recipes for friends and local cafés – and grew into a food studio that blends seasonal cooking, styling and plant-filled spaces.
@@ -35,6 +44,13 @@ const About: React.FC = () => {
             <p>
               Our work is grounded in simple, joyful food, honest ingredients you'll reach for again and again. We believe in the beauty of the imperfect and the slow rhythm of nature.
             </p>
+            <div className="md:hidden flex justify-center mt-8">
+               <img
+                src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?q=80&w=800&auto=format&fit=crop"
+                alt="Green leaves in a circular window"
+                className="w-64 h-64 object-cover rounded-full shadow-xl border-4 border-pomona-cream"
+              />
+            </div>
           </div>
         </div>
       </Section>
