@@ -33,7 +33,7 @@ const About: React.FC = () => {
               {/* Circular image below heading */}
               <div className="w-56 h-56 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-white shadow-lg rotate-3 hover:rotate-0 transition-transform duration-700 ease-out">
                 <img
-                  src="https://images.unsplash.com/photo-1596230529625-7ee541fb331c?q=80&w=600&auto=format&fit=crop"
+                  src="https://Raw.github.com/acehuall/Pomonas_Website/main/Photos/Frog%20Photo.jpg"
                   alt="Fresh figs and fruits"
                   className="w-full h-full object-cover"
                 />
