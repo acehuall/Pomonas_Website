@@ -25,9 +25,21 @@ const About: React.FC = () => {
       {/* Story */}
       <Section bgClass="bg-neutral-stone text-pomona-forest">
         <div className="grid md:grid-cols-2 gap-12 md:gap-24">
-          <h2 className="font-dm text-4xl md:text-5xl leading-tight">
-            A small studio with a big appetite.
-          </h2>
+          <div>
+            <h2 className="font-dm text-4xl md:text-5xl leading-tight">
+              A small studio with a big appetite.
+            </h2>
+            <div className="mt-8 flex">
+              {/* Circular image below heading */}
+              <div className="w-56 h-56 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-white shadow-lg rotate-3 hover:rotate-0 transition-transform duration-700 ease-out">
+                <img
+                  src="https://images.unsplash.com/photo-1596230529625-7ee541fb331c?q=80&w=600&auto=format&fit=crop"
+                  alt="Fresh figs and fruits"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
           <div className="font-work text-neutral-charcoal/80 text-lg leading-relaxed space-y-6">
             <p>
               Pomona's is named after the Roman goddess of fruit and orchards. We started as a tiny kitchen project – developing recipes for friends and local cafés – and grew into a food studio that blends seasonal cooking, styling and plant-filled spaces.
