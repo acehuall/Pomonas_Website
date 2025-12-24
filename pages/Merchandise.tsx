@@ -5,12 +5,12 @@ import { Product } from '../types';
 import { useNavigate } from 'react-router-dom';
 
 const products: Product[] = [
-  { id: '1', name: "Pomona's Canvas Tote", price: '£25.00', image: 'https://picsum.photos/seed/tote/600/600', description: 'Heavyweight organic cotton.' },
+  { id: '1', name: "Pomona's Jewelry", price: '£55.00', image: 'https://raw.github.com/acehuall/Pomonas_Website/main/Photos/Jewelry.jpg', description: 'Heavyweight organic cotton.' },
   { id: '2', name: 'Citrus & Herb Towels', price: '£18.00', image: 'https://raw.github.com/acehuall/Pomonas_Website/main/Photos/Tea%20Towel%20Image%20(600x600).png', description: 'Cotton kitchen towel.' },
-  { id: '3', name: 'Seasonal Zine Vol. 1', price: '£18.00', image: 'https://picsum.photos/seed/zine/600/600', description: '20 recipes for Autumn.' },
-  { id: '4', name: 'Monstera Art Print', price: '£45.00', image: 'https://picsum.photos/seed/print/600/600', description: 'A3 Giclée print.' },
-  { id: '5', name: 'Market Net Bag', price: '£15.00', image: 'https://picsum.photos/seed/netbag/600/600', description: 'Expandable cotton mesh.' },
-  { id: '6', name: 'Ceramic Pourer', price: '£73.00', image: 'https://picsum.photos/seed/pourer/600/600', description: 'Hand-thrown speckled clay.' },
+  { id: '3', name: 'Pomona's Green Cap', price: '£18.00', image: 'https://raw.github.com/acehuall/Pomonas_Website/main/Photos/Pomonas%20hat.png', description: '20 recipes for Autumn.' },
+  { id: '4', name: 'Monstera Art Print', price: '£45.00', image: 'https://raw.github.com/acehuall/Pomonas_Website/main/Photos/Monstera%20Plant%20Print.png', description: 'A3 Giclée print.' },
+  { id: '5', name: 'Market Net Bag', price: '£15.00', image: 'https://raw.github.com/acehuall/Pomonas_Website/main/Photos/Net%20Bag.jpg', description: 'Expandable cotton mesh.' },
+  { id: '6', name: 'Ceramic Vase', price: '£73.00', image: 'https://raw.github.com/acehuall/Pomonas_Website/main/Photos/Orange%20vase.jpg', description: 'Hand-thrown speckled clay.' },
 ];
 
 const Merchandise: React.FC = () => {
