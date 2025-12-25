@@ -21,7 +21,7 @@ const Home: React.FC = () => {
               Food, foliage & everyday slow living
             </p>
             <h2 className="font-dm text-2xl md:text-4xl text-white mb-10 leading-tight max-w-xl">
-              A food-lifestyle studio bringing seasonal recipes, leafy spaces and slow rituals into your home.
+              A food studio bringing seasonal recipes, leafy spaces and slow rituals into your home.
             </h2>
             <div className="flex flex-col sm:flex-row gap-4 mb-20">
               <Button onClick={() => navigate('/services')}>Explore Our Recipes</Button>
