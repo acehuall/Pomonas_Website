@@ -1,12 +1,13 @@
 {
-  "name": "pomona's",
+  "name": "pomonas-website",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "optimise:images": "node scripts/optimise-images.mjs"
   },
   "dependencies": {
     "lucide-react": "^0.559.0",

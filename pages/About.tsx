@@ -9,14 +9,14 @@ const About: React.FC = () => {
       <div className="relative bg-pomona-forest pt-32 pb-16 md:pt-40 md:pb-32">
         <div className="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
           <div>
-            <h1 className="font-syne font-extrabold text-6xl md:text-8xl text-pomona-cream lowercase mb-8 leading-[0.8]">
-              about<br/>pomona
+            <h1 className="font-syne font-extrabold text-6xl md:text-8xl text-pomona-cream mb-8 leading-[0.8]">
+              about<br/>Pomona's
             </h1>
           </div>
           <div className="flex justify-center md:justify-end">
              <img
               src={mexico.src} width={mexico.width} height={mexico.height} decoding="async" loading="lazy"
-              alt="Classical Statue"
+              alt="Person seated at a table with food and drinks"
               className="w-full max-w-sm h-[400px] md:h-[550px] object-cover rounded-t-full rounded-b-2xl shadow-xl bg-neutral-800"
             />
           </div>
@@ -35,7 +35,7 @@ const About: React.FC = () => {
               <div className="w-56 h-56 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-white shadow-lg rotate-3 hover:rotate-0 transition-transform duration-700 ease-out">
                 <img
                   src={frog.src} width={frog.width} height={frog.height} decoding="async" loading="lazy"
-                  alt="Fresh figs and fruits"
+                  alt="Two children seated on a green frog-themed fairground ride"
                   className="w-full h-full object-cover"
                 />
               </div>

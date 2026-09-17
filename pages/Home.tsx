@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useFormspree } from '../hooks/useFormspree';
 import FormError from '../components/FormError';
-import { heroFoliage, rusticTable, orangeVase, teaTowel, netBag, cap } from '../src/assets/images';
+import { heroFoliage, rusticTable } from '../src/assets/images';
 import { ArrowRight, Utensils, HandPlatter, Calendar } from 'lucide-react';
 import Section from '../components/Section';
+import { products } from '../data/products';
+import type { Product } from '../types';
 import Button from '../components/Button';
 import { NavLink, useNavigate } from 'react-router-dom';
 
@@ -18,8 +20,8 @@ const Home: React.FC = () => {
       <div className="relative min-h-screen bg-pomona-forest pt-24 md:pt-32 overflow-hidden flex flex-col">
         <div className="container mx-auto px-6 flex-grow flex flex-col relative z-10">
           <div className="md:w-2/3 lg:w-1/2 pt-10 md:pt-20">
-            <h1 className="font-syne font-extrabold text-[64px] md:text-[120px] leading-[0.85] text-pomona-cream lowercase relative z-10 mb-6 md:mb-8">
-              pomona's
+            <h1 className="font-syne font-extrabold text-[64px] md:text-[120px] leading-[0.85] text-pomona-cream relative z-10 mb-6 md:mb-8">
+              Pomona's
             </h1>
 
             <p className="font-work text-lime-zest uppercase tracking-widest text-sm mb-4">
@@ -29,7 +31,7 @@ const Home: React.FC = () => {
               A food studio bringing seasonal recipes, leafy spaces and slow rituals into your home.
             </h2>
             <div className="flex flex-col sm:flex-row gap-4 mb-20">
-              <Button onClick={() => navigate('/services')}>Explore Our Recipes</Button>
+              <Button onClick={() => navigate('/services')}>Explore Our Services</Button>
               <Button variant="secondary" onClick={() => navigate('/merchandise')}>Shop the Pomona's Pantry</Button>
             </div>
           </div>
@@ -39,7 +41,7 @@ const Home: React.FC = () => {
         <div className="absolute bottom-0 right-0 w-full md:w-[50%] lg:w-[45%] h-[40vh] md:h-[80vh] z-0 pointer-events-none">
            <img
             src={heroFoliage.src} width={heroFoliage.width} height={heroFoliage.height} decoding="async" fetchPriority="high"
-            alt="Lush green foliage"
+            alt="A lone tree in a grassy field in golden light"
             className="w-full h-full object-cover rounded-tl-[80px] opacity-90 md:opacity-100"
           />
         </div>
@@ -62,7 +64,7 @@ const Home: React.FC = () => {
           <div className="relative h-[400px] md:h-[500px]">
             <img
               src={rusticTable.src} width={rusticTable.width} height={rusticTable.height} decoding="async" loading="lazy"
-              alt="Rustic table spread"
+              alt="Pastel macarons, a cup and white flowers on a tiled table"
               className="w-full h-full object-cover rounded-2xl"
             />
           </div>
@@ -97,10 +99,9 @@ const Home: React.FC = () => {
            <NavLink to="/merchandise" className="text-lime-zest font-work uppercase text-sm tracking-wide">View Shop</NavLink>
         </div>
         <div className="flex space-x-6 overflow-x-auto pb-8 scrollbar-hide">
-          <ProductCardMini name="Pomona's Ceramic Vase" price="£55" image={orangeVase} />
-          <ProductCardMini name="Citrus Tea Towel" price="£18" image={teaTowel} />
-          <ProductCardMini name="Pomona's Net Bag" price="£18" image={netBag} />
-          <ProductCardMini name="Pomona's Baseball Cap" price="£25" image={cap} />
+          {products.filter(p => p.featured).map((product) => (
+            <ProductCardMini key={product.id} product={product} />
+          ))}
         </div>
       </Section>
 
@@ -143,15 +144,15 @@ const ServiceCard: React.FC<{icon: React.ReactNode, title: string, description: 
   </div>
 );
 
-const ProductCardMini: React.FC<{name: string, price: string, image: { src: string; width: number; height: number }}> = ({ name, price, image }) => {
+const ProductCardMini: React.FC<{product: Product}> = ({ product }) => {
   const navigate = useNavigate();
   return (
     <div className="min-w-[280px] group cursor-pointer" onClick={() => navigate('/merchandise')}>
       <div className="h-[280px] w-full overflow-hidden rounded-lg mb-4 bg-leaf-mid/10">
-        <img src={image.src} width={image.width} height={image.height} decoding="async" loading="lazy" alt={name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+        <img src={product.image} width={product.imageWidth} height={product.imageHeight} decoding="async" loading="lazy" alt={product.imageAlt} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
       </div>
-      <h4 className="font-dm text-xl text-pomona-cream">{name}</h4>
-      <p className="font-work text-sm text-lime-zest">{price}</p>
+      <h4 className="font-dm text-xl text-pomona-cream">{product.name}</h4>
+      <p className="font-work text-sm text-lime-zest">{product.price}</p>
     </div>
   );
 };

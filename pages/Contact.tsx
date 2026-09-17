@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { products } from './Merchandise';
+import { products } from '../data/products';
 import { contactEmail } from '../data/contact';
 import { useFormspree } from '../hooks/useFormspree';
 import FormError from '../components/FormError';

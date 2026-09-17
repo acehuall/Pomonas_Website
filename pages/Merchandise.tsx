@@ -1,18 +1,8 @@
 import React from 'react';
-import { jewellery, teaTowel, cap, monsteraPrint, netBag, orangeVase } from '../src/assets/images';
+import { products } from '../data/products';
 import Section from '../components/Section';
 import Button, { ButtonLink } from '../components/Button';
-import { Product } from '../types';
 import { useNavigate } from 'react-router-dom';
-
-export const products: Product[] = [
-  { id: '1', name: "Pomona's Jewelry", price: '£55.00', image: jewellery.src, imageWidth: jewellery.width, imageHeight: jewellery.height, description: 'Heavyweight organic cotton.' },
-  { id: '2', name: 'Citrus & Herb Towels', price: '£18.00', image: teaTowel.src, imageWidth: teaTowel.width, imageHeight: teaTowel.height, description: 'Cotton kitchen towel.' },
-  { id: '3', name: 'Pomonas Green Cap', price: '£18.00', image: cap.src, imageWidth: cap.width, imageHeight: cap.height, description: 'Embroidered cotton cap.' },
-  { id: '4', name: 'Monstera Art Print', price: '£45.00', image: monsteraPrint.src, imageWidth: monsteraPrint.width, imageHeight: monsteraPrint.height, description: 'Botanical minmalist decor.' },
-  { id: '5', name: 'Market Net Bag', price: '£15.00', image: netBag.src, imageWidth: netBag.width, imageHeight: netBag.height, description: 'Expandable cotton mesh.' },
-  { id: '6', name: 'Ceramic Vase', price: '£73.00', image: orangeVase.src, imageWidth: orangeVase.width, imageHeight: orangeVase.height, description: 'Hand-thrown speckled clay.' },
-];
 
 const Merchandise: React.FC = () => {
   const navigate = useNavigate();
@@ -35,7 +25,7 @@ const Merchandise: React.FC = () => {
                     <img
                         src={product.image}
                         width={product.imageWidth} height={product.imageHeight} decoding="async" loading="lazy"
-                        alt={product.name}
+                        alt={product.imageAlt}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
                 </div>
