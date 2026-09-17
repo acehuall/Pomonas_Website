@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useFormspree } from '../hooks/useFormspree';
 import FormError from '../components/FormError';
+import { heroFoliage, rusticTable, orangeVase, teaTowel, netBag, cap } from '../src/assets/images';
 import { ArrowRight, Utensils, HandPlatter, Calendar } from 'lucide-react';
 import Section from '../components/Section';
 import Button from '../components/Button';
@@ -20,7 +21,7 @@ const Home: React.FC = () => {
             <h1 className="font-syne font-extrabold text-[64px] md:text-[120px] leading-[0.85] text-pomona-cream lowercase relative z-10 mb-6 md:mb-8">
               pomona's
             </h1>
-            
+
             <p className="font-work text-lime-zest uppercase tracking-widest text-sm mb-4">
               Food, foliage & everyday slow living
             </p>
@@ -33,12 +34,12 @@ const Home: React.FC = () => {
             </div>
           </div>
         </div>
-        
+
         {/* Leafy Image Island */}
         <div className="absolute bottom-0 right-0 w-full md:w-[50%] lg:w-[45%] h-[40vh] md:h-[80vh] z-0 pointer-events-none">
-           <img 
-            src="https://images.unsplash.com/photo-1528183429752-a97d0bf99b5a?q=80&w=1920&auto=format&fit=crop" 
-            alt="Lush green foliage" 
+           <img
+            src={heroFoliage.src} width={heroFoliage.width} height={heroFoliage.height} decoding="async" fetchPriority="high"
+            alt="Lush green foliage"
             className="w-full h-full object-cover rounded-tl-[80px] opacity-90 md:opacity-100"
           />
         </div>
@@ -59,9 +60,9 @@ const Home: React.FC = () => {
             </NavLink>
           </div>
           <div className="relative h-[400px] md:h-[500px]">
-            <img 
-              src="https://images.unsplash.com/photo-1490914327627-9fe8d52f4d90?q=80&w=1200&auto=format&fit=crop" 
-              alt="Rustic table spread" 
+            <img
+              src={rusticTable.src} width={rusticTable.width} height={rusticTable.height} decoding="async" loading="lazy"
+              alt="Rustic table spread"
               className="w-full h-full object-cover rounded-2xl"
             />
           </div>
@@ -71,17 +72,17 @@ const Home: React.FC = () => {
       {/* Services Highlight */}
       <Section bgClass="bg-sage-soft text-pomona-forest">
         <div className="grid md:grid-cols-3 gap-8">
-          <ServiceCard 
+          <ServiceCard
             icon={<Utensils className="w-8 h-8 text-leaf-mid" />}
             title="Recipe Development"
             description="Plant-forward recipes for brands, cafés and home cooks seeking nourishment."
           />
-          <ServiceCard 
+          <ServiceCard
             icon={<HandPlatter className="w-8 h-8 text-leaf-mid" />}
             title="Bespoke Catering"
             description="Tailored culinary experiences for your special occasions."
           />
-          <ServiceCard 
+          <ServiceCard
             icon={<Calendar className="w-8 h-8 text-leaf-mid" />}
             title="Workshops & Events"
             description="Intimate sessions on cooking, styling and slow hosting rituals."
@@ -96,10 +97,10 @@ const Home: React.FC = () => {
            <NavLink to="/merchandise" className="text-lime-zest font-work uppercase text-sm tracking-wide">View Shop</NavLink>
         </div>
         <div className="flex space-x-6 overflow-x-auto pb-8 scrollbar-hide">
-          <ProductCardMini name="Pomona's Ceramic Vase" price="£55" img="https://raw.github.com/acehuall/Pomonas_Website/main/Photos/Orange%20vase.jpg" />
-          <ProductCardMini name="Citrus Tea Towel" price="£18" img="https://raw.github.com/acehuall/Pomonas_Website/main/Photos/Tea%20Towel%20Image%20(600x600).png" />
-          <ProductCardMini name="Pomona's Net Bag" price="£18" img="https://raw.github.com/acehuall/Pomonas_Website/main/Photos/Net%20Bag.jpg" />
-          <ProductCardMini name="Pomona's Baseball Cap" price="£25" img="https://raw.github.com/acehuall/Pomonas_Website/main/Photos/Pomonas%20hat.png" />
+          <ProductCardMini name="Pomona's Ceramic Vase" price="£55" image={orangeVase} />
+          <ProductCardMini name="Citrus Tea Towel" price="£18" image={teaTowel} />
+          <ProductCardMini name="Pomona's Net Bag" price="£18" image={netBag} />
+          <ProductCardMini name="Pomona's Baseball Cap" price="£25" image={cap} />
         </div>
       </Section>
 
@@ -116,11 +117,11 @@ const Home: React.FC = () => {
           <form onSubmit={(event) => { event.preventDefault(); void submit({ email }); }} aria-busy={status === 'sending'}>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <label htmlFor="newsletter-email" className="sr-only">Email for newsletter</label>
-            <input 
+            <input
               id="newsletter-email" name="email" autoComplete="email" required
               value={email} onChange={(event) => setEmail(event.target.value)}
-              type="email" 
-              placeholder="YOUR EMAIL" 
+              type="email"
+              placeholder="YOUR EMAIL"
               className="px-6 py-3.5 bg-transparent border border-pomona-forest/30 rounded-full font-work placeholder:text-pomona-forest/50 focus:outline-hidden focus:border-pomona-forest w-full sm:w-auto min-w-[300px]"
             />
             <Button type="submit" disabled={status === 'sending'}>{status === 'sending' ? 'Sending…' : 'Join the list'}</Button>
@@ -142,12 +143,12 @@ const ServiceCard: React.FC<{icon: React.ReactNode, title: string, description: 
   </div>
 );
 
-const ProductCardMini: React.FC<{name: string, price: string, img: string}> = ({ name, price, img }) => {
+const ProductCardMini: React.FC<{name: string, price: string, image: { src: string; width: number; height: number }}> = ({ name, price, image }) => {
   const navigate = useNavigate();
   return (
     <div className="min-w-[280px] group cursor-pointer" onClick={() => navigate('/merchandise')}>
       <div className="h-[280px] w-full overflow-hidden rounded-lg mb-4 bg-leaf-mid/10">
-        <img src={img} alt={name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+        <img src={image.src} width={image.width} height={image.height} decoding="async" loading="lazy" alt={name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
       </div>
       <h4 className="font-dm text-xl text-pomona-cream">{name}</h4>
       <p className="font-work text-sm text-lime-zest">{price}</p>

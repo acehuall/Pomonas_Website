@@ -10,6 +10,8 @@ export interface Product {
   name: string;
   price: string;
   image: string;
+  imageWidth: number;
+  imageHeight: number;
   description: string;
 }
 
