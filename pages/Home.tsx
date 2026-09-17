@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useFormspree } from '../hooks/useFormspree';
+import FormError from '../components/FormError';
 import { ArrowRight, Utensils, HandPlatter, Calendar } from 'lucide-react';
 import Section from '../components/Section';
 import Button from '../components/Button';
@@ -6,6 +8,8 @@ import { NavLink, useNavigate } from 'react-router-dom';
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
+  const [email, setEmail] = useState('');
+  const { status, submit } = useFormspree(import.meta.env.VITE_FORMSPREE_NEWSLETTER_ID);
 
   return (
     <>
@@ -106,14 +110,24 @@ const Home: React.FC = () => {
           <p className="font-work text-lg mb-8 text-neutral-charcoal/80">
             Seasonal recipes, plant musings and the odd kitchen playlist. No spam, just warm bread.
           </p>
+          {status === 'success' ? (
+            <p role="status" className="font-work">Thanks — you're on the list.</p>
+          ) : (
+          <form onSubmit={(event) => { event.preventDefault(); void submit({ email }); }} aria-busy={status === 'sending'}>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <label htmlFor="newsletter-email" className="sr-only">Email for newsletter</label>
             <input 
+              id="newsletter-email" name="email" autoComplete="email" required
+              value={email} onChange={(event) => setEmail(event.target.value)}
               type="email" 
               placeholder="YOUR EMAIL" 
               className="px-6 py-3.5 bg-transparent border border-pomona-forest/30 rounded-full font-work placeholder:text-pomona-forest/50 focus:outline-none focus:border-pomona-forest w-full sm:w-auto min-w-[300px]"
             />
-            <Button>Join the list</Button>
+            <Button type="submit" disabled={status === 'sending'}>{status === 'sending' ? 'Sending…' : 'Join the list'}</Button>
           </div>
+          {status === 'error' && <div className="mt-4"><FormError /></div>}
+          </form>
+          )}
         </div>
       </Section>
     </>

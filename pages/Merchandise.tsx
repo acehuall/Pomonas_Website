@@ -1,10 +1,10 @@
 import React from 'react';
 import Section from '../components/Section';
-import Button from '../components/Button';
+import Button, { ButtonLink } from '../components/Button';
 import { Product } from '../types';
 import { useNavigate } from 'react-router-dom';
 
-const products: Product[] = [
+export const products: Product[] = [
   { id: '1', name: "Pomona's Jewelry", price: '£55.00', image: 'https://raw.github.com/acehuall/Pomonas_Website/main/Photos/Jewelry.jpg', description: 'Heavyweight organic cotton.' },
   { id: '2', name: 'Citrus & Herb Towels', price: '£18.00', image: 'https://raw.github.com/acehuall/Pomonas_Website/main/Photos/Tea%20Towel%20Image%20(600x600).png', description: 'Cotton kitchen towel.' },
   { id: '3', name: 'Pomonas Green Cap', price: '£18.00', image: 'https://raw.github.com/acehuall/Pomonas_Website/main/Photos/Pomonas%20hat.png', description: 'Embroidered cotton cap.' },
@@ -43,9 +43,9 @@ const Merchandise: React.FC = () => {
                 <span className="font-work font-medium text-leaf-mid">{product.price}</span>
               </div>
               <p className="font-work text-neutral-charcoal/60 text-sm mb-4">{product.description}</p>
-              <Button variant="secondary" className="!px-6 !py-2 !text-xs !border-pomona-forest !text-pomona-forest hover:!bg-pomona-forest hover:!text-pomona-cream">
-                View Details
-              </Button>
+              <ButtonLink to={`/contact?product=${encodeURIComponent(product.id)}`} variant="secondary" className="!px-6 !py-2 !text-xs !border-pomona-forest !text-pomona-forest hover:!bg-pomona-forest hover:!text-pomona-cream">
+                Enquire
+              </ButtonLink>
             </div>
           ))}
         </div>
