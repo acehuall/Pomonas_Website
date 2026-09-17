@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
-import { NavItem } from '../types';
+import type { NavItem } from '../types';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const menuButton = useRef<HTMLButtonElement>(null);
 
   const navItems: NavItem[] = [
     { label: 'Home', path: '/' },
@@ -32,6 +33,12 @@ const Navbar: React.FC = () => {
 
   return (
     <nav
+      onKeyDown={(event) => {
+        if (event.key === 'Escape' && isMobileMenuOpen) {
+          setIsMobileMenuOpen(false);
+          menuButton.current?.focus();
+        }
+      }}
       className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
         isScrolled || isMobileMenuOpen ? 'bg-pomona-forest shadow-md' : 'bg-transparent'
       }`}
@@ -61,6 +68,10 @@ const Navbar: React.FC = () => {
 
         {/* Mobile Burger */}
         <button
+          ref={menuButton}
+          type="button"
+          aria-expanded={isMobileMenuOpen}
+          aria-controls="mobile-navigation"
           className="md:hidden text-pomona-cream z-50"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle menu"
@@ -70,6 +81,9 @@ const Navbar: React.FC = () => {
 
         {/* Mobile Menu Overlay */}
         <div
+          id="mobile-navigation"
+          aria-hidden={!isMobileMenuOpen}
+          inert={!isMobileMenuOpen}
           className={`fixed inset-0 bg-pomona-forest flex flex-col items-center justify-center space-y-8 transition-transform duration-300 ease-in-out md:hidden ${
             isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
@@ -77,6 +91,7 @@ const Navbar: React.FC = () => {
           {navItems.map((item) => (
             <NavLink
               key={item.path}
+              onClick={() => setIsMobileMenuOpen(false)}
               to={item.path}
               className={({ isActive }) =>
                 `font-syne text-3xl text-pomona-cream hover:text-lime-zest transition-colors ${

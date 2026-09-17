@@ -1,20 +1,9 @@
 import React from 'react';
+import { products } from '../data/products';
 import Section from '../components/Section';
-import Button from '../components/Button';
-import { Product } from '../types';
-import { useNavigate } from 'react-router-dom';
-
-const products: Product[] = [
-  { id: '1', name: "Pomona's Jewelry", price: '£55.00', image: 'https://raw.github.com/acehuall/Pomonas_Website/main/Photos/Jewelry.jpg', description: 'Heavyweight organic cotton.' },
-  { id: '2', name: 'Citrus & Herb Towels', price: '£18.00', image: 'https://raw.github.com/acehuall/Pomonas_Website/main/Photos/Tea%20Towel%20Image%20(600x600).png', description: 'Cotton kitchen towel.' },
-  { id: '3', name: 'Pomonas Green Cap', price: '£18.00', image: 'https://raw.github.com/acehuall/Pomonas_Website/main/Photos/Pomonas%20hat.png', description: 'Embroidered cotton cap.' },
-  { id: '4', name: 'Monstera Art Print', price: '£45.00', image: 'https://raw.github.com/acehuall/Pomonas_Website/main/Photos/Monstera%20Plant%20Print.png', description: 'Botanical minmalist decor.' },
-  { id: '5', name: 'Market Net Bag', price: '£15.00', image: 'https://raw.github.com/acehuall/Pomonas_Website/main/Photos/Net%20Bag.jpg', description: 'Expandable cotton mesh.' },
-  { id: '6', name: 'Ceramic Vase', price: '£73.00', image: 'https://raw.github.com/acehuall/Pomonas_Website/main/Photos/Orange%20vase.jpg', description: 'Hand-thrown speckled clay.' },
-];
+import { ButtonLink } from '../components/Button';
 
 const Merchandise: React.FC = () => {
-  const navigate = useNavigate();
 
   return (
     <>
@@ -31,9 +20,10 @@ const Merchandise: React.FC = () => {
             <div key={product.id} className="group">
               <div className="bg-white p-4 rounded-xl shadow-sm mb-6 overflow-hidden">
                 <div className="aspect-square overflow-hidden rounded-lg bg-gray-100">
-                    <img 
-                        src={product.image} 
-                        alt={product.name} 
+                    <img
+                        src={product.image}
+                        width={product.imageWidth} height={product.imageHeight} decoding="async" loading="lazy"
+                        alt={product.imageAlt}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
                 </div>
@@ -43,9 +33,9 @@ const Merchandise: React.FC = () => {
                 <span className="font-work font-medium text-leaf-mid">{product.price}</span>
               </div>
               <p className="font-work text-neutral-charcoal/60 text-sm mb-4">{product.description}</p>
-              <Button variant="secondary" className="!px-6 !py-2 !text-xs !border-pomona-forest !text-pomona-forest hover:!bg-pomona-forest hover:!text-pomona-cream">
-                View Details
-              </Button>
+              <ButtonLink to={`/contact?product=${encodeURIComponent(product.id)}`} variant="outline-dark">
+                Enquire
+              </ButtonLink>
             </div>
           ))}
         </div>
@@ -56,7 +46,7 @@ const Merchandise: React.FC = () => {
         <p className="font-work max-w-lg mx-auto mb-8 leading-relaxed">
             We are currently updating our online store. In the meantime, you can place orders directly via email or find us at local weekend markets.
         </p>
-        <Button onClick={() => navigate('/contact')}>Email to Order</Button>
+        <ButtonLink to="/contact">Email to Order</ButtonLink>
       </Section>
     </>
   );

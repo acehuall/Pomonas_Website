@@ -1,11 +1,10 @@
 import React from 'react';
 import Section from '../components/Section';
-import Button from '../components/Button';
+import { ButtonLink } from '../components/Button';
 import { ChefHat, HandPlatter, HeartHandshake, Users } from 'lucide-react';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Services: React.FC = () => {
-  const navigate = useNavigate();
 
   return (
     <>
@@ -56,7 +55,7 @@ const Services: React.FC = () => {
           <ProcessStep number="03" title="Gather" text="We bring everything together into content, products or experiences ready for the table." />
         </div>
         <div className="text-center mt-16">
-            <Button onClick={() => navigate('/contact')}>Start a Project</Button>
+            <ButtonLink to="/contact">Start a Project</ButtonLink>
         </div>
       </Section>
     </>

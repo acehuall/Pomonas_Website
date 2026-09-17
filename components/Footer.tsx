@@ -1,5 +1,4 @@
 import React from 'react';
-import { Instagram, Linkedin, Pin } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
@@ -20,11 +19,7 @@ const Footer: React.FC = () => {
 
         {/* Socials & Copyright */}
         <div className="flex flex-col items-center md:items-end space-y-4">
-          <div className="flex space-x-6">
-            <a href="#" className="hover:text-lime-zest transition-colors"><Instagram size={20} /></a>
-            <a href="#" className="hover:text-lime-zest transition-colors"><Pin size={20} /></a>
-            <a href="#" className="hover:text-lime-zest transition-colors"><Linkedin size={20} /></a>
-          </div>
+          {/* Social icons omitted until real profile URLs are supplied. */}
           <p className="font-work text-sm text-sage-soft/60">
             © {new Date().getFullYear()} Pomona's Studio.
           </p>

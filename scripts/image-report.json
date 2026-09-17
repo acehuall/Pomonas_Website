@@ -1,0 +1,86 @@
+{
+  "before": 10708625,
+  "after": 683092,
+  "images": [
+    {
+      "file": "frog.webp",
+      "before": 221138,
+      "after": 72632,
+      "width": 1039,
+      "height": 580,
+      "quality": 80
+    },
+    {
+      "file": "jewellery.webp",
+      "before": 340344,
+      "after": 21346,
+      "width": 1000,
+      "height": 1000,
+      "quality": 80
+    },
+    {
+      "file": "mexico.webp",
+      "before": 357867,
+      "after": 65876,
+      "width": 1600,
+      "height": 1003,
+      "quality": 80
+    },
+    {
+      "file": "monstera-print.webp",
+      "before": 1240556,
+      "after": 16372,
+      "width": 954,
+      "height": 954,
+      "quality": 80
+    },
+    {
+      "file": "net-bag.webp",
+      "before": 3168978,
+      "after": 127802,
+      "width": 1000,
+      "height": 1000,
+      "quality": 80
+    },
+    {
+      "file": "orange-vase.webp",
+      "before": 175298,
+      "after": 18236,
+      "width": 1000,
+      "height": 1000,
+      "quality": 80
+    },
+    {
+      "file": "cap.webp",
+      "before": 3770730,
+      "after": 73856,
+      "width": 1000,
+      "height": 1000,
+      "quality": 80
+    },
+    {
+      "file": "tea-towel.webp",
+      "before": 736125,
+      "after": 30820,
+      "width": 600,
+      "height": 600,
+      "quality": 80
+    },
+    {
+      "file": "hero-foliage.webp",
+      "before": 352667,
+      "after": 134316,
+      "width": 1600,
+      "height": 1067,
+      "quality": 80
+    },
+    {
+      "file": "rustic-table.webp",
+      "before": 344922,
+      "after": 121836,
+      "width": 1067,
+      "height": 1600,
+      "quality": 80
+    }
+  ]
+}

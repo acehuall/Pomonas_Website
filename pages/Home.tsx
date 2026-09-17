@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useFormspree } from '../hooks/useFormspree';
+import FormError from '../components/FormError';
+import { heroFoliage, rusticTable } from '../src/assets/images';
 import { ArrowRight, Utensils, HandPlatter, Calendar } from 'lucide-react';
 import Section from '../components/Section';
-import Button from '../components/Button';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { products } from '../data/products';
+import type { Product } from '../types';
+import Button, { ButtonLink } from '../components/Button';
+import { NavLink, Link } from 'react-router-dom';
 
 const Home: React.FC = () => {
-  const navigate = useNavigate();
+  const [email, setEmail] = useState('');
+  const { status, submit } = useFormspree(import.meta.env.VITE_FORMSPREE_NEWSLETTER_ID);
 
   return (
     <>
@@ -13,10 +19,10 @@ const Home: React.FC = () => {
       <div className="relative min-h-screen bg-pomona-forest pt-24 md:pt-32 overflow-hidden flex flex-col">
         <div className="container mx-auto px-6 flex-grow flex flex-col relative z-10">
           <div className="md:w-2/3 lg:w-1/2 pt-10 md:pt-20">
-            <h1 className="font-syne font-extrabold text-[64px] md:text-[120px] leading-[0.85] text-pomona-cream lowercase relative z-10 mb-6 md:mb-8">
-              pomona's
+            <h1 className="font-syne font-extrabold text-[64px] md:text-[120px] leading-[0.85] text-pomona-cream relative z-10 mb-6 md:mb-8">
+              Pomona's
             </h1>
-            
+
             <p className="font-work text-lime-zest uppercase tracking-widest text-sm mb-4">
               Food, foliage & everyday slow living
             </p>
@@ -24,17 +30,17 @@ const Home: React.FC = () => {
               A food studio bringing seasonal recipes, leafy spaces and slow rituals into your home.
             </h2>
             <div className="flex flex-col sm:flex-row gap-4 mb-20">
-              <Button onClick={() => navigate('/services')}>Explore Our Recipes</Button>
-              <Button variant="secondary" onClick={() => navigate('/merchandise')}>Shop the Pomona's Pantry</Button>
+              <ButtonLink to="/services">Explore Our Services</ButtonLink>
+              <ButtonLink variant="secondary" to="/merchandise">Shop the Pomona's Pantry</ButtonLink>
             </div>
           </div>
         </div>
-        
+
         {/* Leafy Image Island */}
         <div className="absolute bottom-0 right-0 w-full md:w-[50%] lg:w-[45%] h-[40vh] md:h-[80vh] z-0 pointer-events-none">
-           <img 
-            src="https://images.unsplash.com/photo-1528183429752-a97d0bf99b5a?q=80&w=1920&auto=format&fit=crop" 
-            alt="Lush green foliage" 
+           <img
+            src={heroFoliage.src} width={heroFoliage.width} height={heroFoliage.height} decoding="async" fetchPriority="high"
+            alt="A lone tree in a grassy field in golden light"
             className="w-full h-full object-cover rounded-tl-[80px] opacity-90 md:opacity-100"
           />
         </div>
@@ -55,9 +61,9 @@ const Home: React.FC = () => {
             </NavLink>
           </div>
           <div className="relative h-[400px] md:h-[500px]">
-            <img 
-              src="https://images.unsplash.com/photo-1490914327627-9fe8d52f4d90?q=80&w=1200&auto=format&fit=crop" 
-              alt="Rustic table spread" 
+            <img
+              src={rusticTable.src} width={rusticTable.width} height={rusticTable.height} decoding="async" loading="lazy"
+              alt="Pastel macarons, a cup and white flowers on a tiled table"
               className="w-full h-full object-cover rounded-2xl"
             />
           </div>
@@ -67,17 +73,17 @@ const Home: React.FC = () => {
       {/* Services Highlight */}
       <Section bgClass="bg-sage-soft text-pomona-forest">
         <div className="grid md:grid-cols-3 gap-8">
-          <ServiceCard 
+          <ServiceCard
             icon={<Utensils className="w-8 h-8 text-leaf-mid" />}
             title="Recipe Development"
             description="Plant-forward recipes for brands, cafés and home cooks seeking nourishment."
           />
-          <ServiceCard 
+          <ServiceCard
             icon={<HandPlatter className="w-8 h-8 text-leaf-mid" />}
             title="Bespoke Catering"
             description="Tailored culinary experiences for your special occasions."
           />
-          <ServiceCard 
+          <ServiceCard
             icon={<Calendar className="w-8 h-8 text-leaf-mid" />}
             title="Workshops & Events"
             description="Intimate sessions on cooking, styling and slow hosting rituals."
@@ -92,10 +98,9 @@ const Home: React.FC = () => {
            <NavLink to="/merchandise" className="text-lime-zest font-work uppercase text-sm tracking-wide">View Shop</NavLink>
         </div>
         <div className="flex space-x-6 overflow-x-auto pb-8 scrollbar-hide">
-          <ProductCardMini name="Pomona's Ceramic Vase" price="£55" img="https://raw.github.com/acehuall/Pomonas_Website/main/Photos/Orange%20vase.jpg" />
-          <ProductCardMini name="Citrus Tea Towel" price="£18" img="https://raw.github.com/acehuall/Pomonas_Website/main/Photos/Tea%20Towel%20Image%20(600x600).png" />
-          <ProductCardMini name="Pomona's Net Bag" price="£18" img="https://raw.github.com/acehuall/Pomonas_Website/main/Photos/Net%20Bag.jpg" />
-          <ProductCardMini name="Pomona's Baseball Cap" price="£25" img="https://raw.github.com/acehuall/Pomonas_Website/main/Photos/Pomonas%20hat.png" />
+          {products.filter(p => p.featured).map((product) => (
+            <ProductCardMini key={product.id} product={product} />
+          ))}
         </div>
       </Section>
 
@@ -106,14 +111,24 @@ const Home: React.FC = () => {
           <p className="font-work text-lg mb-8 text-neutral-charcoal/80">
             Seasonal recipes, plant musings and the odd kitchen playlist. No spam, just warm bread.
           </p>
+          {status === 'success' ? (
+            <p role="status" className="font-work">Thanks — you're on the list.</p>
+          ) : (
+          <form onSubmit={(event) => { event.preventDefault(); void submit({ email }); }} aria-busy={status === 'sending'}>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <input 
-              type="email" 
-              placeholder="YOUR EMAIL" 
-              className="px-6 py-3.5 bg-transparent border border-pomona-forest/30 rounded-full font-work placeholder:text-pomona-forest/50 focus:outline-none focus:border-pomona-forest w-full sm:w-auto min-w-[300px]"
+            <label htmlFor="newsletter-email" className="sr-only">Email for newsletter</label>
+            <input
+              id="newsletter-email" name="email" autoComplete="email" required
+              value={email} onChange={(event) => setEmail(event.target.value)}
+              type="email"
+              placeholder="YOUR EMAIL"
+              className="px-6 py-3.5 bg-transparent border border-pomona-forest/30 rounded-full font-work placeholder:text-pomona-forest/50 focus:outline-hidden focus:border-pomona-forest w-full sm:w-auto min-w-[300px]"
             />
-            <Button>Join the list</Button>
+            <Button type="submit" disabled={status === 'sending'}>{status === 'sending' ? 'Sending…' : 'Join the list'}</Button>
           </div>
+          {status === 'error' && <div className="mt-4"><FormError /></div>}
+          </form>
+          )}
         </div>
       </Section>
     </>
@@ -128,16 +143,15 @@ const ServiceCard: React.FC<{icon: React.ReactNode, title: string, description: 
   </div>
 );
 
-const ProductCardMini: React.FC<{name: string, price: string, img: string}> = ({ name, price, img }) => {
-  const navigate = useNavigate();
+const ProductCardMini: React.FC<{product: Product}> = ({ product }) => {
   return (
-    <div className="min-w-[280px] group cursor-pointer" onClick={() => navigate('/merchandise')}>
+    <Link to="/merchandise" className="min-w-[280px] group">
       <div className="h-[280px] w-full overflow-hidden rounded-lg mb-4 bg-leaf-mid/10">
-        <img src={img} alt={name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+        <img src={product.image} width={product.imageWidth} height={product.imageHeight} decoding="async" loading="lazy" alt={product.imageAlt} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
       </div>
-      <h4 className="font-dm text-xl text-pomona-cream">{name}</h4>
-      <p className="font-work text-sm text-lime-zest">{price}</p>
-    </div>
+      <h4 className="font-dm text-xl text-pomona-cream">{product.name}</h4>
+      <p className="font-work text-sm text-lime-zest">{product.price}</p>
+    </Link>
   );
 };
 

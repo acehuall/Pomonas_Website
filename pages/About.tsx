@@ -1,4 +1,5 @@
 import React from 'react';
+import { mexico, frog } from '../src/assets/images';
 import Section from '../components/Section';
 
 const About: React.FC = () => {
@@ -8,14 +9,14 @@ const About: React.FC = () => {
       <div className="relative bg-pomona-forest pt-32 pb-16 md:pt-40 md:pb-32">
         <div className="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
           <div>
-            <h1 className="font-syne font-extrabold text-6xl md:text-8xl text-pomona-cream lowercase mb-8 leading-[0.8]">
-              about<br/>pomona
+            <h1 className="font-syne font-extrabold text-6xl md:text-8xl text-pomona-cream mb-8 leading-[0.8]">
+              about<br/>Pomona's
             </h1>
           </div>
           <div className="flex justify-center md:justify-end">
-             <img 
-              src="https://raw.github.com/acehuall/Pomonas_Website/main/Photos/Mexigo%20Photo.jpg" 
-              alt="Classical Statue" 
+             <img
+              src={mexico.src} width={mexico.width} height={mexico.height} decoding="async" loading="lazy"
+              alt="Person seated at a table with food and drinks"
               className="w-full max-w-sm h-[400px] md:h-[550px] object-cover rounded-t-full rounded-b-2xl shadow-xl bg-neutral-800"
             />
           </div>
@@ -33,8 +34,8 @@ const About: React.FC = () => {
               {/* Circular image below heading */}
               <div className="w-56 h-56 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-white shadow-lg rotate-3 hover:rotate-0 transition-transform duration-700 ease-out">
                 <img
-                  src="https://Raw.github.com/acehuall/Pomonas_Website/main/Photos/Frog%20Photo.jpg"
-                  alt="Fresh figs and fruits"
+                  src={frog.src} width={frog.width} height={frog.height} decoding="async" loading="lazy"
+                  alt="Two children seated on a green frog-themed fairground ride"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -54,15 +55,15 @@ const About: React.FC = () => {
       {/* Values */}
       <Section bgClass="bg-neutral-stone text-pomona-forest pt-0">
         <div className="grid md:grid-cols-3 gap-12 border-t border-leaf-mid/20 pt-16">
-          <ValueColumn 
+          <ValueColumn
             title="Seasonal by default"
             text="We work with ingredients that are in season and close to home wherever possible, respecting the earth's natural cycles."
           />
-          <ValueColumn 
+          <ValueColumn
             title="Calm & considered"
             text="We design dishes, recipes and spaces that feel unhurried and generous, creating sanctuaries in busy lives."
           />
-          <ValueColumn 
+          <ValueColumn
             title="Kind to people & planet"
             text="We collaborate with independent makers and suppliers who share our values of sustainability and ethical craft."
           />

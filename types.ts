@@ -8,12 +8,9 @@ export interface Product {
   name: string;
   price: string;
   image: string;
+  imageWidth: number;
+  imageHeight: number;
+  imageAlt: string;
+  featured: boolean;
   description: string;
-}
-
-export interface Service {
-  id: string;
-  title: string;
-  description: string[];
-  icon: React.ReactNode;
 }
