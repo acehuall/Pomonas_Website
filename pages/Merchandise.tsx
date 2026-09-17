@@ -43,7 +43,7 @@ const Merchandise: React.FC = () => {
                 <span className="font-work font-medium text-leaf-mid">{product.price}</span>
               </div>
               <p className="font-work text-neutral-charcoal/60 text-sm mb-4">{product.description}</p>
-              <ButtonLink to={`/contact?product=${encodeURIComponent(product.id)}`} variant="secondary" className="!px-6 !py-2 !text-xs !border-pomona-forest !text-pomona-forest hover:!bg-pomona-forest hover:!text-pomona-cream">
+              <ButtonLink to={`/contact?product=${encodeURIComponent(product.id)}`} variant="outline-dark">
                 Enquire
               </ButtonLink>
             </div>

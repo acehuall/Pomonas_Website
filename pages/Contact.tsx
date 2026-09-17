@@ -64,15 +64,15 @@ const Contact: React.FC = () => {
             <form className="space-y-6" onSubmit={handleSubmit} aria-busy={status === 'sending'}>
                 <div>
                     <label htmlFor="contact-name" className="block font-work uppercase text-xs tracking-wider font-bold text-leaf-mid mb-2">Name *</label>
-                    <input id="contact-name" name="name" autoComplete="name" required value={name} onChange={(event) => setName(event.target.value)} type="text" className="w-full bg-neutral-stone border-b-2 border-transparent focus:border-pomelo-orange p-3 outline-none transition-colors" placeholder="Jane Doe" />
+                    <input id="contact-name" name="name" autoComplete="name" required value={name} onChange={(event) => setName(event.target.value)} type="text" className="w-full bg-neutral-stone border-b-2 border-transparent focus:border-pomelo-orange p-3 outline-hidden transition-colors" placeholder="Jane Doe" />
                 </div>
                 <div>
                     <label htmlFor="contact-email" className="block font-work uppercase text-xs tracking-wider font-bold text-leaf-mid mb-2">Email *</label>
-                    <input id="contact-email" name="email" autoComplete="email" required value={email} onChange={(event) => setEmail(event.target.value)} type="email" className="w-full bg-neutral-stone border-b-2 border-transparent focus:border-pomelo-orange p-3 outline-none transition-colors" placeholder="jane@example.com" />
+                    <input id="contact-email" name="email" autoComplete="email" required value={email} onChange={(event) => setEmail(event.target.value)} type="email" className="w-full bg-neutral-stone border-b-2 border-transparent focus:border-pomelo-orange p-3 outline-hidden transition-colors" placeholder="jane@example.com" />
                 </div>
                 <div>
                     <label htmlFor="contact-subject" className="block font-work uppercase text-xs tracking-wider font-bold text-leaf-mid mb-2">How can we help?</label>
-                    <select id="contact-subject" name="subject" value={subject} onChange={(event) => setSubject(event.target.value)} className="w-full bg-neutral-stone border-b-2 border-transparent focus:border-pomelo-orange p-3 outline-none transition-colors">
+                    <select id="contact-subject" name="subject" value={subject} onChange={(event) => setSubject(event.target.value)} className="w-full bg-neutral-stone border-b-2 border-transparent focus:border-pomelo-orange p-3 outline-hidden transition-colors">
                         <option>Recipe Development</option>
                         <option>Content & Styling</option>
                         <option>Collaboration</option>
@@ -82,7 +82,7 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                     <label htmlFor="contact-message" className="block font-work uppercase text-xs tracking-wider font-bold text-leaf-mid mb-2">Message</label>
-                    <textarea id="contact-message" name="message" value={message} onChange={(event) => setMessage(event.target.value)} rows={4} className="w-full bg-neutral-stone border-b-2 border-transparent focus:border-pomelo-orange p-3 outline-none transition-colors" placeholder="Tell us about your project..."></textarea>
+                    <textarea id="contact-message" name="message" value={message} onChange={(event) => setMessage(event.target.value)} rows={4} className="w-full bg-neutral-stone border-b-2 border-transparent focus:border-pomelo-orange p-3 outline-hidden transition-colors" placeholder="Tell us about your project..."></textarea>
                 </div>
                 {status === 'error' && <FormError />}
                 <Button type="submit" disabled={status === 'sending'} className="w-full">{status === 'sending' ? 'Sending…' : 'Submit Message'}</Button>

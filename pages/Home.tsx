@@ -121,7 +121,7 @@ const Home: React.FC = () => {
               value={email} onChange={(event) => setEmail(event.target.value)}
               type="email" 
               placeholder="YOUR EMAIL" 
-              className="px-6 py-3.5 bg-transparent border border-pomona-forest/30 rounded-full font-work placeholder:text-pomona-forest/50 focus:outline-none focus:border-pomona-forest w-full sm:w-auto min-w-[300px]"
+              className="px-6 py-3.5 bg-transparent border border-pomona-forest/30 rounded-full font-work placeholder:text-pomona-forest/50 focus:outline-hidden focus:border-pomona-forest w-full sm:w-auto min-w-[300px]"
             />
             <Button type="submit" disabled={status === 'sending'}>{status === 'sending' ? 'Sending…' : 'Join the list'}</Button>
           </div>
