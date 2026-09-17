@@ -6,11 +6,10 @@ import { ArrowRight, Utensils, HandPlatter, Calendar } from 'lucide-react';
 import Section from '../components/Section';
 import { products } from '../data/products';
 import type { Product } from '../types';
-import Button from '../components/Button';
-import { NavLink, useNavigate } from 'react-router-dom';
+import Button, { ButtonLink } from '../components/Button';
+import { NavLink, Link } from 'react-router-dom';
 
 const Home: React.FC = () => {
-  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const { status, submit } = useFormspree(import.meta.env.VITE_FORMSPREE_NEWSLETTER_ID);
 
@@ -31,8 +30,8 @@ const Home: React.FC = () => {
               A food studio bringing seasonal recipes, leafy spaces and slow rituals into your home.
             </h2>
             <div className="flex flex-col sm:flex-row gap-4 mb-20">
-              <Button onClick={() => navigate('/services')}>Explore Our Services</Button>
-              <Button variant="secondary" onClick={() => navigate('/merchandise')}>Shop the Pomona's Pantry</Button>
+              <ButtonLink to="/services">Explore Our Services</ButtonLink>
+              <ButtonLink variant="secondary" to="/merchandise">Shop the Pomona's Pantry</ButtonLink>
             </div>
           </div>
         </div>
@@ -145,15 +144,14 @@ const ServiceCard: React.FC<{icon: React.ReactNode, title: string, description: 
 );
 
 const ProductCardMini: React.FC<{product: Product}> = ({ product }) => {
-  const navigate = useNavigate();
   return (
-    <div className="min-w-[280px] group cursor-pointer" onClick={() => navigate('/merchandise')}>
+    <Link to="/merchandise" className="min-w-[280px] group">
       <div className="h-[280px] w-full overflow-hidden rounded-lg mb-4 bg-leaf-mid/10">
         <img src={product.image} width={product.imageWidth} height={product.imageHeight} decoding="async" loading="lazy" alt={product.imageAlt} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
       </div>
       <h4 className="font-dm text-xl text-pomona-cream">{product.name}</h4>
       <p className="font-work text-sm text-lime-zest">{product.price}</p>
-    </div>
+    </Link>
   );
 };
 

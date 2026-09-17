@@ -1,11 +1,9 @@
 import React from 'react';
 import { products } from '../data/products';
 import Section from '../components/Section';
-import Button, { ButtonLink } from '../components/Button';
-import { useNavigate } from 'react-router-dom';
+import { ButtonLink } from '../components/Button';
 
 const Merchandise: React.FC = () => {
-  const navigate = useNavigate();
 
   return (
     <>
@@ -48,7 +46,7 @@ const Merchandise: React.FC = () => {
         <p className="font-work max-w-lg mx-auto mb-8 leading-relaxed">
             We are currently updating our online store. In the meantime, you can place orders directly via email or find us at local weekend markets.
         </p>
-        <Button onClick={() => navigate('/contact')}>Email to Order</Button>
+        <ButtonLink to="/contact">Email to Order</ButtonLink>
       </Section>
     </>
   );
